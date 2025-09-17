@@ -2,15 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Retirement Countdown">
+    <meta name="description" content="Countdown to your retirement with personalized tracking and motivational quotes">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiUmV0aXJlbWVudCBDb3VudGRvd24iLCJzaG9ydF9uYW1lIjoiUmV0aXJlbWVudCIsImRlc2NyaXB0aW9uIjoiQ291bnRkb3duIHRvIHlvdXIgcmV0aXJlbWVudCB3aXRoIHBlcnNvbmFsaXplZCB0cmFja2luZyBhbmQgbW90aXZhdGlvbmFsIHF1b3RlcyIsInN0YXJ0X3VybCI6Ii4iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjNjY3ZWVhIiwidGhlbWVfY29sb3IiOiIjNjY3ZWVhIiwib3JpZW50YXRpb24iOiJwb3J0cmFpdC1wcmltYXJ5IiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMjQgMjQlM0UlM0NwYXRoIGZpbGw9JyNmZmZmZmYnIGQ9J00xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMC0xNGMtMy4zMSAwLTYgMi42OS02IDZzMi42OSA2IDYgNiA2LTIuNjkgNi02LTIuNjktNi02LTYtNnptMCAxMGMtMi4yMSAwLTQtMS43OS00LTRzMS43OS00IDQtNCA0IDEuNzkgNCA0LTEuNzkgNC00IDR6Jy8lM0UlM0Mvc3ZnJTNFIiwic2l6ZXMiOiIxOTJ4MTkyIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwifSx7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMjQgMjQlM0UlM0NwYXRoIGZpbGw9JyNmZmZmZmYnIGQ9J0wxMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMC0xNGMtMy4zMSAwLTYgMi42OS02IDZzMi42OSA2IDYgNiA2LTIuNjkgNi02LTIuNjktNi02LTYtNnptMCAxMGMtMi4yMSAwLTQtMS43OS00LTRzMS43OS00IDQtNCA0IDEuNzkgNCA0LTEuNzkgNC00IDR6Jy8lM0UlM0Mvc3ZnJTNFIiwic2l6ZXMiOiI1MTJ4NTEyIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwifV19">
+    
+    <!-- iOS Splash Screens -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4em0wLTE0Yy0zLjMxIDAtNiAyLjY5LTYgNnMyLjY5IDYgNiA2IDYtMi42OSA2LTYtMi42OS02LTYtNnptMCAxMGMtMi4yMSAwLTQtMS43OS00LTRzMS43OS00IDQtNCA0IDEuNzkgNCA0LTEuNzkgNC00IDR6Ii8+PC9zdmc+">
+    
     <title>Retirement Countdown - Your Journey to Freedom</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-color: #333;
+            --light-text: #666;
+            --background: #f7fafc;
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .countryside-bg {
@@ -21,6 +47,9 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-color: #4a5568; /* Fallback background color */
+            will-change: transform;
+            transform: translateZ(0);
+            min-height: 100vh;
         }
         
         .card-shadow {
@@ -201,623 +230,338 @@
             color: white;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
+        
+        /* Notification styling */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .notification.show {
+            opacity: 1;
+        }
+        
+        /* Theme styles */
+        body.theme-dark {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                              url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        body.theme-ocean {
+            background: linear-gradient(rgba(0, 50, 100, 0.7), rgba(0, 100, 150, 0.7)), 
+                              url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Install app banner */
+        .install-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .install-banner.show {
+            transform: translateY(0);
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Loading screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(102, 126, 234, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Offline indicator */
+        .offline-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #f56565;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 14px;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .offline-indicator.show {
+            transform: translateY(0);
+        }
+        
+        /* Install button styles */
+        .install-button {
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .install-button:hover {
+            background-color: #5a67d8;
+        }
+        
+        .install-button:disabled {
+            background-color: #a0aec0;
+            cursor: not-allowed;
+        }
+        
+        /* PWA install prompt for iOS */
+        .ios-install-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            max-width: 300px;
+            text-align: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .ios-install-hint.show {
+            opacity: 1;
+        }
+        
+        .ios-install-hint img {
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+        
+        /* Funny quote styling */
+        .funny-quote {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .funny-quote-text {
+            color: white;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .funny-quote-author {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-align: right;
+        }
+        
+        /* Responsive improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .countryside-bg {
+                background-attachment: scroll;
+            }
+            
+            .percentage-table {
+                font-size: 0.75rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.75rem;
+            }
+            
+            .funny-quote-text {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .glass-card {
+                padding: 1.5rem;
+            }
+            
+            .percentage-table {
+                font-size: 0.7rem;
+            }
+            
+            .percentage-table th,
+            .percentage-table td {
+                padding: 0.25rem;
+            }
+            
+            .page-icon {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .page-icon img,
+            .page-icon i {
+                width: 30px;
+                height: 30px;
+                font-size: 24px;
+            }
+            
+            .dutch-barge-icon {
+                width: 150px;
+                height: 90px;
+            }
+            
+            .fallback-icon {
+                font-size: 60px;
+            }
+            
+            .funny-quote {
+                padding: 12px;
+            }
+            
+            .funny-quote-text {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body class="countryside-bg min-h-screen fallback-gradient">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner mb-4"></div>
+        <p class="text-white text-lg">Loading your retirement countdown...</p>
+    </div>
+
+    <!-- Offline Indicator -->
+    <div id="offlineIndicator" class="offline-indicator">
+        <i class="fas fa-wifi-slash mr-2"></i> You're offline. Some features may be limited.
+    </div>
+
+    <!-- Install App Banner -->
+    <div id="installBanner" class="install-banner">
+        <div>
+            <p class="font-medium">Install Retirement Countdown</p>
+            <p class="text-sm text-gray-600">Add to your home screen for quick access</p>
+        </div>
+        <div>
+            <button id="installButton" class="install-button">
+                <i class="fas fa-download"></i>
+                Install
+            </button>
+            <button id="dismissInstallButton" class="ml-2 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- iOS Install Hint -->
+    <div id="iosInstallHint" class="ios-install-hint">
+        <p>To install this app, tap <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4em0wLTE0Yy0zLjMxIDAtNiAyLjY5LTYgNnMyLjY5IDYgNiA2IDYtMi42OSA2LTYtMi42OS02LTYtNnptMCAxMGMtMi4yMSAwLTQtMS43OS00LTRzMS43OS00IDQtNCA0IDEuNzkgNCA0LTEuNzkgNC00IDR6Ii8+PC9zdmc+" alt="Share icon"> and then "Add to Home Screen"</p>
+    </div>
+
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <header class="text-center mb-12">
             <div class="float-animation inline-block icon-container">
                 <!-- Dutch Barge image with fallback -->
-                <img src="https://www.piperboats.com/wp-content/uploads/2023/04/Piper_57N_side.png" 
-                     alt="Dutch Barge" 
-                     class="dutch-barge-icon mb-4"
-                     onerror="this.style.display='none'; document.getElementById('fallbackIcon').style.display='block';">
+                <img src="https://www.piperboats.com/wp-content/uploads/2023/04/Piper_57N_side.png" alt="Dutch Barge" class="dutch-barge-icon mb-4" onerror="this.style.display='none'; document.getElementById('fallbackIcon').style.display='block';">
                 <i id="fallbackIcon" class="fas fa-ship fallback-icon mb-4" style="display: none;"></i>
             </div>
             <h1 class="text-5xl font-bold text-white mb-4 drop-shadow-lg">Countdown</h1>
-            <p class="text-xl text-purple-100 drop-shadow-md">to the journey</p>
+            <p class="text-xl text-purple-100 drop-shadow-md">:-)</p>
+            
+            <!-- Funny Quote Section -->
+            <div class="funny-quote max-w-2xl mx-auto">
+                <p id="dailyQuote" class="funny-quote-text quote-fade">Loading today's humor...</p>
+                <p id="quoteAuthor" class="funny-quote-author"></p>
+            </div>
         </header>
 
-        <!-- Main Content -->
-        <main class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Countdown 1: June 30, 2026 -->
-                <div class="glass-card rounded-2xl card-shadow p-8 transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-center mb-6">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
-                            <i class="fas fa-calendar-alt text-2xl text-purple-600"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">First Step</h2>
-                        <p class="text-lg text-purple-600 font-semibold">June 30, 2026</p>
-                    </div>
-                    
-                    <div id="countdown1" class="grid grid-cols-2 gap-4">
-                        <div class="countdown-item rounded-xl p-6 text-center">
-                            <div class="countdown-number mb-2" id="months1">--</div>
-                            <div class="text-purple-100 text-sm font-medium">Months</div>
-                        </div>
-                        <div class="countdown-item rounded-xl p-6 text-center">
-                            <div class="countdown-number mb-2" id="weeks1">--</div>
-                            <div class="text-purple-100 text-sm font-medium">Weeks</div>
-                        </div>
-                        <div class="countdown-item rounded-xl p-6 text-center">
-                            <div class="countdown-number mb-2" id="workingDays1">--</div>
-                            <div class="text-purple-100 text-sm font-medium">Working Days</div>
-                        </div>
-                        <div class="countdown-item rounded-xl p-6 text-center">
-                            <div class="countdown-number mb-2" id="days1">--</div>
-                            <div class="text-purple-100 text-sm font-medium">Days</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Percentage Table for Countdown 1 -->
-                    <div class="mt-6">
-                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Time Unit Impact</h4>
-                        <table class="percentage-table">
-                            <thead>
-                                <tr>
-                                    <th>Time Unit</th>
-                                    <th>% of Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1 Month</td>
-                                    <td>
-                                        <div class="flex justify-between items-center">
-                                            <span id="monthPercent1">--</span>
-                                            <span class="text-xs text-gray-500">of total months</span>
-                                        </div>
-                                        <div class="percentage-bar">
-                                            <div id="monthBar1" class="percentage-fill" style="width: 0%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1 Week</td>
-                                    <td>
-                                        <div class="flex justify-between items-center">
-                                            <span id="weekPercent1">--</span>
-                                            <span class="text-xs text-gray-500">of total weeks</span>
-                                        </div>
-                                        <div class="percentage-bar">
-                                            <div id="weekBar1" class="percentage-fill" style="width: 0%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1 Working Day</td>
-                                    <td>
-                                        <div class="flex justify-between items-center">
-                                            <span id="workingDayPercent1">--</span>
-                                            <span class="text-xs text-gray-500">of total working days</span>
-                                        </div>
-                                        <div class="percentage-bar">
-                                            <div id="workingDayBar1" class="percentage-fill" style="width: 0%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="mt-6 text-center">
-                        <p class="text-sm text-gray-600">
-                            <i class="fas fa-info-circle mr-1"></i>
-                            Working days exclude weekends and Swedish holidays
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Countdown 2: January 30, 2027 -->
-                <div class="glass-card rounded-2xl card-shadow p-8 transform hover:scale-105 transition-transform duration-300">
-                    <div class="text-center mb-6">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
-                            <i class="fas fa-sun text-2xl text-purple-600"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Second Step</h2>
-                        <p class="text-lg text-purple-600 font-semibold">January 30, 2027</p>
-                    </div>
-                    
-                    <div id="countdown2" class="grid grid-cols-2 gap-4">
-                        <div class="countdown-item rounded-xl p-6 text-center">
-                            <div class="countdown-number mb-2" id="months2">--</div>
-                            <div class="text-purple-100 text-sm font-medium">Months</div>
-                        </div>
-                        <div class="countdown-item rounded-xl p-6 text-center">
-                            <div class="countdown-number mb-2" id="weeks2">--</div>
-                            <div class="text-purple-100 text-sm font-medium">Weeks</div>
-                        </div>
-                        <div class="countdown-item rounded-xl p-6 text-center">
-                            <div class="countdown-number mb-2" id="workingDays2">--</div>
-                            <div class="text-purple-100 text-sm font-medium">Working Days</div>
-                        </div>
-                        <div class="countdown-item rounded-xl p-6 text-center">
-                            <div class="countdown-number mb-2" id="days2">--</div>
-                            <div class="text-purple-100 text-sm font-medium">Days</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Percentage Table for Countdown 2 -->
-                    <div class="mt-6">
-                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Time Unit Impact</h4>
-                        <table class="percentage-table">
-                            <thead>
-                                <tr>
-                                    <th>Time Unit</th>
-                                    <th>% of Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1 Month</td>
-                                    <td>
-                                        <div class="flex justify-between items-center">
-                                            <span id="monthPercent2">--</span>
-                                            <span class="text-xs text-gray-500">of total months</span>
-                                        </div>
-                                        <div class="percentage-bar">
-                                            <div id="monthBar2" class="percentage-fill" style="width: 0%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1 Week</td>
-                                    <td>
-                                        <div class="flex justify-between items-center">
-                                            <span id="weekPercent2">--</span>
-                                            <span class="text-xs text-gray-500">of total weeks</span>
-                                        </div>
-                                        <div class="percentage-bar">
-                                            <div id="weekBar2" class="percentage-fill" style="width: 0%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1 Working Day</td>
-                                    <td>
-                                        <div class="flex justify-between items-center">
-                                            <span id="workingDayPercent2">--</span>
-                                            <span class="text-xs text-gray-500">of total working days</span>
-                                        </div>
-                                        <div class="percentage-bar">
-                                            <div id="workingDayBar2" class="percentage-fill" style="width: 0%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="mt-6 text-center">
-                        <p class="text-sm text-gray-600">
-                            <i class="fas fa-info-circle mr-1"></i>
-                            Working days exclude weekends and Swedish holidays
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Motivational Section -->
-            <div class="mt-12 text-center">
-                <div class="glass-motivational rounded-2xl p-8 card-shadow">
-                    <h3 class="text-2xl font-bold text-white mb-4 drop-shadow-md">Keep Going! Your Freedom Awaits</h3>
-                    <p id="dailyQuote" class="text-lg text-purple-100 mb-6 quote-fade drop-shadow-sm">Loading today's motivation...</p>
-                    <div class="flex justify-center space-x-4">
-                        <div class="pulse-animation">
-                            <i class="fas fa-coffee text-4xl text-white drop-shadow-md"></i>
-                        </div>
-                        <div class="pulse-animation" style="animation-delay: 0.5s;">
-                            <i class="fas fa-book text-4xl text-white drop-shadow-md"></i>
-                        </div>
-                        <div class="pulse-animation" style="animation-delay: 1s;">
-                            <i class="fas fa-plane text-4xl text-white drop-shadow-md"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Swedish Holidays Section -->
-            <div class="mt-8 glass-holidays rounded-xl p-6">
-                <h4 class="text-lg font-semibold text-gray-800 mb-4">
-                    <i class="fas fa-flag-sweden mr-2"></i>Swedish Holidays - Exact Dates
-                </h4>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Current Year Holidays -->
-                    <div>
-                        <h5 class="font-semibold text-gray-700 mb-3 flex items-center">
-                            <i class="fas fa-calendar-day mr-2 text-purple-600"></i>
-                            <span id="currentYearTitle">Current Year</span>
-                        </h5>
-                        <div id="currentYearHolidays" class="space-y-2 max-h-96 overflow-y-auto pr-2">
-                            <!-- Holidays will be populated here -->
-                        </div>
-                    </div>
-                    
-                    <!-- Next Year Holidays -->
-                    <div>
-                        <h5 class="font-semibold text-gray-700 mb-3 flex items-center">
-                            <i class="fas fa-calendar-plus mr-2 text-purple-600"></i>
-                            <span id="nextYearTitle">Next Year</span>
-                        </h5>
-                        <div id="nextYearHolidays" class="space-y-2 max-h-96 overflow-y-auto pr-2">
-                            <!-- Holidays will be populated here -->
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-4 text-sm text-gray-600 text-center">
-                    <i class="fas fa-info-circle mr-1"></i>
-                    These holidays are excluded from working days calculations
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Floating Page Icon -->
-    <div class="page-icon" title="Dutch Barge">
-        <img src="https://www.piperboats.com/wp-content/uploads/2023/04/Piper_57N_side.png" 
-             alt="Dutch Barge"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <i class="fas fa-ship" style="display: none;"></i>
-    </div>
-
-    <script>
-        // Array of motivational quotes
-        const motivationalQuotes = [
-            "The best time to plant a tree was 20 years ago. The second best time is now. Your retirement journey starts today!",
-            "Dreams don't work unless you do. Keep pushing forward, your freedom is within reach!",
-            "Success is not final, failure is not fatal: it is the courage to continue that counts. You're almost there!",
-            "The future belongs to those who believe in the beauty of their dreams. Your retirement dream is becoming reality!",
-            "It does not matter how slowly you go as long as you do not stop. Every day counts!",
-            "Believe you can and you're halfway there. Your retirement is closer than you think!",
-            "The only way to do great work is to love what you do. Soon you'll love doing nothing at all!",
-            "In the middle of difficulty lies opportunity. Your retirement is the ultimate opportunity!",
-            "The secret of getting ahead is getting started. You've already started the countdown!",
-            "Don't watch the clock; do what it does. Keep going, time is on your side!",
-            "The future depends on what you do today. Make today count for your tomorrow!",
-            "It always seems impossible until it's done. Your retirement is possible and will be done!",
-            "You are never too old to set another goal or to dream a new dream. Retirement is your new dream!",
-            "What lies behind us and what lies before us are tiny matters compared to what lies within us. You've got this!",
-            "The only impossible journey is the one you never begin. You're on the journey to freedom!",
-            "In the end, we will remember not the words of our enemies, but the silence of our friends. Enjoy the peace of retirement!",
-            "Life is what happens to you while you're busy making other plans. Soon, life will be your plan!",
-            "The purpose of our lives is to be happy. Retirement is your ticket to happiness!",
-            "Get busy living or get busy dying. You're getting busy living the retirement life!",
-            "You only live once, but if you do it right, once is enough. Your retirement will be done right!",
-            "Many of life's failures are people who did not realize how close they were to success when they gave up. Don't give up!",
-            "If you want to lift yourself up, lift up someone else. Your retirement will let you lift many others!",
-            "The greatest glory in living lies not in never falling, but in rising every time we fall. Keep rising!",
-            "Life is either a daring adventure or nothing at all. Retirement is your grand adventure!",
-            "The way to get started is to quit talking and begin doing. You're doing it!",
-            "Your time is limited, so don't waste it living someone else's life. Soon it will be all your time!",
-            "If life were predictable it would cease to be life, and be without flavor. Retirement adds the best flavor!",
-            "Life is really simple, but we insist on making it complicated. Retirement simplifies beautifully!",
-            "The future belongs to those who prepare for it today. You're preparing for your golden years!",
-            "It is during our darkest moments that we must focus to see the light. Your retirement is the light!",
-            "Whoever is happy will make others happy too. Your retirement happiness will spread!",
-            "The greatest gift you can give your family and the world is a healthy you. Retirement brings health!",
-            "Nothing is impossible, the word itself says 'I'm possible'! Your retirement is possible!",
-            "You are never too old to set another goal or to dream a new dream. Retirement is your new dream!",
-            "The time is always right to do what is right. Planning for retirement is right!",
-            "You don't always need a plan. Sometimes you just need to breathe, trust, let go, and see what happens. Retirement is that time!",
-            "What we think, we become. Think retirement, become retired!",
-            "The only person you are destined to become is the person you decide to be. Decide to be happily retired!",
-            "Go confidently in the direction of your dreams! Live the life you've imagined. Your retirement dream awaits!",
-            "When you reach the end of your rope, tie a knot in it and hang on. You're almost to the end of the work rope!",
-            "Believe in yourself. You are braver than you think, more talented than you know, and capable of more than you imagine. Retirement proves it!",
-            "Success is not how high you have climbed, but how you make a positive difference to the world. Retirement lets you make that difference!",
-            "Happiness is not something ready made. It comes from your own actions. Your retirement actions will bring happiness!",
-            "The only way to do great work is to love what you do. Soon you'll love doing nothing at all!",
-            "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart. Feel retirement!",
-            "Keep your face always toward the sunshine—and shadows will fall behind you. Retirement is your sunshine!",
-            "What you get by achieving your goals is not as important as what you become by achieving your goals. Become retired!"
-        ];
-        
-        // Function to get the day of the year (1-366)
-        function getDayOfYear() {
-            const now = new Date();
-            const start = new Date(now.getFullYear(), 0, 0);
-            const diff = now - start;
-            const oneDay = 1000 * 60 * 60 * 24;
-            const dayOfYear = Math.floor(diff / oneDay);
-            return dayOfYear;
-        }
-        
-        // Function to get today's quote
-        function getDailyQuote() {
-            const dayOfYear = getDayOfYear();
-            const quoteIndex = dayOfYear % motivationalQuotes.length;
-            return motivationalQuotes[quoteIndex];
-        }
-        
-        // Function to update the daily quote
-        function updateDailyQuote() {
-            const quoteElement = document.getElementById('dailyQuote');
-            if (quoteElement) {
-                quoteElement.textContent = getDailyQuote();
-                quoteElement.classList.remove('quote-fade');
-                void quoteElement.offsetWidth; // Trigger reflow
-                quoteElement.classList.add('quote-fade');
-            }
-        }
-        
-        // Swedish holidays calculation functions
-        function getSwedishHolidays(year) {
-            const holidays = [];
-            
-            // Fixed date holidays
-            holidays.push({ name: "New Year's Day", date: new Date(year, 0, 1) });
-            holidays.push({ name: "Epiphany", date: new Date(year, 0, 6) });
-            holidays.push({ name: "May Day", date: new Date(year, 4, 1) });
-            holidays.push({ name: "National Day", date: new Date(year, 5, 6) });
-            holidays.push({ name: "Christmas Eve", date: new Date(year, 11, 24) });
-            holidays.push({ name: "Christmas Day", date: new Date(year, 11, 25) });
-            holidays.push({ name: "Boxing Day", date: new Date(year, 11, 26) });
-            holidays.push({ name: "New Year's Eve", date: new Date(year, 11, 31) });
-            
-            // Calculate Easter-related holidays
-            const easter = calculateEaster(year);
-            holidays.push({ name: "Good Friday", date: new Date(easter.getTime() - 2 * 24 * 60 * 60 * 1000) });
-            holidays.push({ name: "Easter Sunday", date: easter });
-            holidays.push({ name: "Easter Monday", date: new Date(easter.getTime() + 1 * 24 * 60 * 60 * 1000) });
-            holidays.push({ name: "Ascension Day", date: new Date(easter.getTime() + 39 * 24 * 60 * 60 * 1000) });
-            
-            // Midsummer (Friday between June 19-25)
-            const midsummerDate = getMidsummerDate(year);
-            holidays.push({ name: "Midsummer Eve", date: midsummerDate });
-            holidays.push({ name: "Midsummer Day", date: new Date(midsummerDate.getTime() + 1 * 24 * 60 * 60 * 1000) });
-            
-            // All Saints' Day (Saturday between Oct 31-Nov 6)
-            const allSaintsDate = getAllSaintsDate(year);
-            holidays.push({ name: "All Saints' Day", date: allSaintsDate });
-            
-            return holidays;
-        }
-        
-        function calculateEaster(year) {
-            const a = year % 19;
-            const b = Math.floor(year / 100);
-            const c = year % 100;
-            const d = Math.floor(b / 4);
-            const e = b % 4;
-            const f = Math.floor((b + 8) / 25);
-            const g = Math.floor((b - f + 1) / 3);
-            const h = (19 * a + b - d - g + 15) % 30;
-            const i = Math.floor(c / 4);
-            const k = c % 4;
-            const l = (32 + 2 * e + 2 * i - h - k) % 7;
-            const m = Math.floor((a + 11 * h + 22 * l) / 451);
-            const month = Math.floor((h + l - 7 * m + 114) / 31) - 1;
-            const day = ((h + l - 7 * m + 114) % 31) + 1;
-            
-            return new Date(year, month, day);
-        }
-        
-        function getMidsummerDate(year) {
-            // Find the Friday between June 19-25
-            let date = new Date(year, 5, 19); // June 19
-            while (date.getDay() !== 5) { // 5 = Friday
-                date.setDate(date.getDate() + 1);
-            }
-            return date;
-        }
-        
-        function getAllSaintsDate(year) {
-            // Find the Saturday between Oct 31-Nov 6
-            let date = new Date(year, 9, 31); // October 31
-            while (date.getDay() !== 6) { // 6 = Saturday
-                date.setDate(date.getDate() + 1);
-            }
-            return date;
-        }
-        
-        function isWeekend(date) {
-            return date.getDay() === 0 || date.getDay() === 6; // Sunday or Saturday
-        }
-        
-        function isSwedishHoliday(date, holidays) {
-            return holidays.some(holiday => 
-                holiday.date.getDate() === date.getDate() &&
-                holiday.date.getMonth() === date.getMonth() &&
-                holiday.date.getFullYear() === date.getFullYear()
-            );
-        }
-        
-        function countWorkingDays(startDate, endDate) {
-            let count = 0;
-            const current = new Date(startDate);
-            const holidays = [];
-            
-            // Get holidays for all years in the range
-            for (let year = current.getFullYear(); year <= endDate.getFullYear(); year++) {
-                const yearHolidays = getSwedishHolidays(year);
-                holidays.push(...yearHolidays);
-            }
-            
-            while (current <= endDate) {
-                if (!isWeekend(current) && !isSwedishHoliday(current, holidays)) {
-                    count++;
-                }
-                current.setDate(current.getDate() + 1);
-            }
-            
-            return count;
-        }
-        
-        function updatePercentages(suffix, months, weeks, workingDays) {
-            // Calculate percentages
-            const monthPercent = months > 0 ? (100 / months).toFixed(2) : 0;
-            const weekPercent = weeks > 0 ? (100 / weeks).toFixed(2) : 0;
-            const workingDayPercent = workingDays > 0 ? (100 / workingDays).toFixed(2) : 0;
-            
-            // Update percentage displays
-            const monthPercentEl = document.getElementById(`monthPercent${suffix}`);
-            const weekPercentEl = document.getElementById(`weekPercent${suffix}`);
-            const workingDayPercentEl = document.getElementById(`workingDayPercent${suffix}`);
-            
-            if (monthPercentEl) monthPercentEl.textContent = `${monthPercent}%`;
-            if (weekPercentEl) weekPercentEl.textContent = `${weekPercent}%`;
-            if (workingDayPercentEl) workingDayPercentEl.textContent = `${workingDayPercent}%`;
-            
-            // Update progress bars
-            const monthBarEl = document.getElementById(`monthBar${suffix}`);
-            const weekBarEl = document.getElementById(`weekBar${suffix}`);
-            const workingDayBarEl = document.getElementById(`workingDayBar${suffix}`);
-            
-            if (monthBarEl) monthBarEl.style.width = `${Math.min(monthPercent, 100)}%`;
-            if (weekBarEl) weekBarEl.style.width = `${Math.min(weekPercent, 100)}%`;
-            if (workingDayBarEl) workingDayBarEl.style.width = `${Math.min(workingDayPercent, 100)}%`;
-        }
-        
-        function calculateCountdown(targetDate, suffix) {
-            const now = new Date();
-            const target = new Date(targetDate);
-            
-            if (target <= now) {
-                document.getElementById(`months${suffix}`).textContent = '0';
-                document.getElementById(`weeks${suffix}`).textContent = '0';
-                document.getElementById(`workingDays${suffix}`).textContent = '0';
-                document.getElementById(`days${suffix}`).textContent = '0';
-                updatePercentages(suffix, 0, 0, 0);
-                return;
-            }
-            
-            // Calculate total days
-            const totalDays = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
-            
-            // Calculate months
-            const months = Math.floor(totalDays / 30.44); // Average days per month
-            
-            // Calculate weeks
-            const weeks = Math.floor(totalDays / 7);
-            
-            // Calculate working days
-            const workingDays = countWorkingDays(now, target);
-            
-            // Update display
-            const monthsEl = document.getElementById(`months${suffix}`);
-            const weeksEl = document.getElementById(`weeks${suffix}`);
-            const workingDaysEl = document.getElementById(`workingDays${suffix}`);
-            const daysEl = document.getElementById(`days${suffix}`);
-            
-            if (monthsEl) monthsEl.textContent = months;
-            if (weeksEl) weeksEl.textContent = weeks;
-            if (workingDaysEl) workingDaysEl.textContent = workingDays;
-            if (daysEl) daysEl.textContent = totalDays;
-            
-            // Update percentages
-            updatePercentages(suffix, months, weeks, workingDays);
-        }
-        
-        // Function to format date
-        function formatDate(date) {
-            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' };
-            return date.toLocaleDateString('en-US', options);
-        }
-        
-        // Function to display holidays
-        function displayHolidays() {
-            const currentYear = new Date().getFullYear();
-            const nextYear = currentYear + 1;
-            
-            // Update titles
-            document.getElementById('currentYearTitle').textContent = currentYear;
-            document.getElementById('nextYearTitle').textContent = nextYear;
-            
-            // Get holidays
-            const currentYearHolidays = getSwedishHolidays(currentYear);
-            const nextYearHolidays = getSwedishHolidays(nextYear);
-            
-            // Sort holidays by date
-            currentYearHolidays.sort((a, b) => a.date - b.date);
-            nextYearHolidays.sort((a, b) => a.date - b.date);
-            
-            // Display current year holidays
-            const currentYearContainer = document.getElementById('currentYearHolidays');
-            currentYearContainer.innerHTML = '';
-            currentYearHolidays.forEach(holiday => {
-                const holidayDiv = document.createElement('div');
-                holidayDiv.className = 'holiday-item bg-gray-50 rounded-lg p-3 border border-gray-200';
-                holidayDiv.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <span class="font-medium text-gray-800">${holiday.name}</span>
-                        <span class="text-sm text-purple-600 font-medium">${formatDate(holiday.date)}</span>
-                    </div>
-                `;
-                currentYearContainer.appendChild(holidayDiv);
-            });
-            
-            // Display next year holidays
-            const nextYearContainer = document.getElementById('nextYearHolidays');
-            nextYearContainer.innerHTML = '';
-            nextYearHolidays.forEach(holiday => {
-                const holidayDiv = document.createElement('div');
-                holidayDiv.className = 'holiday-item bg-gray-50 rounded-lg p-3 border border-gray-200';
-                holidayDiv.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <span class="font-medium text-gray-800">${holiday.name}</span>
-                        <span class="text-sm text-purple-600 font-medium">${formatDate(holiday.date)}</span>
-                    </div>
-                `;
-                nextYearContainer.appendChild(holidayDiv);
-            });
-        }
-        
-        // Update countdowns every second
-        function updateCountdowns() {
-            calculateCountdown('2026-06-30', '1');
-            calculateCountdown('2027-01-30', '2');
-        }
-        
-        // Initialize when DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Update daily quote
-            updateDailyQuote();
-            
-            // Display holidays
-            displayHolidays();
-            
-            // Initial countdown update
-            updateCountdowns();
-            
-            // Update countdowns every second
-            setInterval(updateCountdowns, 1000);
-            
-            // Update quote at midnight
-            const now = new Date();
-            const midnight = new Date(now);
-            midnight.setHours(24, 0, 0, 0);
-            const msUntilMidnight = midnight - now;
-            
-            setTimeout(function() {
-                updateDailyQuote();
-                // Then update every 24 hours
-                setInterval(updateDailyQuote, 24 * 60 * 60 * 1000);
-            }, msUntilMidnight);
-            
-            // Add click event to floating icon
-            const pageIcon = document.querySelector('.page-icon');
-            if (pageIcon) {
-                pageIcon.addEventListener('click', function() {
-                    // Scroll to top
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        });
-        
-        // Fallback: if DOMContentLoaded already fired, run immediately
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-            updateDailyQuote();
-            displayHolidays();
-            updateCountdowns();
-            setInterval(updateCountdowns, 1000);
-        }
-    </script>
-</body>
-</html>
+     
