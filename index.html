@@ -268,6 +268,153 @@
             opacity: 1;
         }
         
+        /* Milestone Timeline Styles */
+        .milestones-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .milestone-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .milestone-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 60px;
+        }
+        
+        .milestone-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 3px solid #667eea;
+            background: white;
+            z-index: 2;
+        }
+        
+        .milestone-item.completed::before {
+            background: #667eea;
+            border-color: #667eea;
+        }
+        
+        .milestone-item.active::before {
+            background: #fbbf24;
+            border-color: #fbbf24;
+            animation: pulse-milestone 2s infinite;
+        }
+        
+        .milestone-timeline::after {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            z-index: 1;
+        }
+        
+        .milestone-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .milestone-content:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .milestone-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+        
+        .milestone-date {
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .milestone-countdown {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        
+        .milestone-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 10px;
+            z-index: 3;
+        }
+        
+        .milestone-item.completed .milestone-icon {
+            color: white;
+        }
+        
+        .milestone-item.active .milestone-icon {
+            color: #92400e;
+        }
+        
+        @keyframes pulse-milestone {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+            }
+        }
+        
+        /* Mobile responsiveness for milestones */
+        @media (max-width: 768px) {
+            .milestone-item {
+                padding-left: 50px;
+                margin-bottom: 20px;
+            }
+            
+            .milestone-item::before {
+                left: 15px;
+                width: 16px;
+                height: 16px;
+            }
+            
+            .milestone-timeline::after {
+                left: 25px;
+            }
+            
+            .milestone-icon {
+                left: 12px;
+                font-size: 8px;
+            }
+            
+            .milestone-title {
+                font-size: 1rem;
+            }
+            
+            .milestone-date {
+                font-size: 0.85rem;
+            }
+        }
+        
         /* Theme styles */
         body.theme-dark {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
@@ -809,6 +956,17 @@
                 </ul>
             </section>
 
+            <!-- Milestones Section -->
+            <section class="milestones-container rounded-xl p-6 mb-8 card-shadow">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-road mr-2 text-gray-600"></i>
+                    Retirement Journey Milestones
+                </h2>
+                <div id="milestonesTimeline" class="milestone-timeline">
+                    <!-- Milestones will be populated by JavaScript -->
+                </div>
+            </section>
+
             <!-- Progress Section -->
             <section class="glass-card rounded-xl p-6 mb-8 card-shadow">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Progress to Retirement</h2>
@@ -887,6 +1045,7 @@
         const dailyQuoteEl = document.getElementById('dailyQuote');
         const quoteAuthorEl = document.getElementById('quoteAuthor');
         const holidaysListEl = document.getElementById('holidaysList');
+        const milestonesTimelineEl = document.getElementById('milestonesTimeline');
         const loadingScreen = document.getElementById('loadingScreen');
         const notification = document.getElementById('notification');
         const debugPanel = document.getElementById('debugPanel');
@@ -911,6 +1070,66 @@
             { text: "A ship in harbor is safe, but that is not what ships are built for.", author: "John A. Shedd" },
             { text: "The goal of retirement is to live off your assets, not your alarm clock.", author: "Unknown" },
             { text: "Retirement is the only time in your life when you can have a life without a job, but still get paid.", author: "Unknown" }
+        ];
+
+        // Retirement Journey Milestones
+        const retirementMilestones = [
+            {
+                id: 'budget',
+                title: 'Budget Preparation',
+                date: '2025-10-24',
+                icon: 'fas fa-calculator',
+                description: 'Budget preparation for retirement planning'
+            },
+            {
+                id: 'budget-presentation',
+                title: 'Budget Presentations',
+                date: '2025-11-01',
+                icon: 'fas fa-presentation',
+                description: 'November budget presentations'
+            },
+            {
+                id: 'karin-birthday',
+                title: 'Anniversaire Karin',
+                date: '2025-12-09',
+                icon: 'fas fa-birthday-cake',
+                description: 'Celebrating Karin\'s special day'
+            },
+            {
+                id: 'holidays',
+                title: 'Fêtes de fin d\'année',
+                date: '2025-12-24',
+                icon: 'fas fa-gifts',
+                description: 'Christmas and New Year celebrations'
+            },
+            {
+                id: 'moving',
+                title: 'Déménagement',
+                date: '2026-01-15',
+                icon: 'fas fa-truck',
+                description: 'Moving after New Year'
+            },
+            {
+                id: 'account-closure',
+                title: 'Clôture de compte',
+                date: '2026-01-21',
+                icon: 'fas fa-file-signature',
+                description: 'Account closure and final arrangements'
+            },
+            {
+                id: 'vacation',
+                title: 'Vacances',
+                date: '2026-04-01',
+                icon: 'fas fa-umbrella-beach',
+                description: 'Well-deserved vacation time'
+            },
+            {
+                id: 'retirement',
+                title: 'Retirement Day!',
+                date: '2027-06-11',
+                icon: 'fas fa-champagne-glasses',
+                description: 'The ultimate milestone - retirement day!'
+            }
         ];
 
         // Swedish holidays for 2025 and 2026
@@ -1173,6 +1392,64 @@
             }
         }
 
+        // Display milestones timeline
+        function displayMilestones() {
+            try {
+                milestonesTimelineEl.innerHTML = '';
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                
+                retirementMilestones.forEach((milestone, index) => {
+                    const milestoneDate = new Date(milestone.date);
+                    milestoneDate.setHours(0, 0, 0, 0);
+                    
+                    // Determine milestone status
+                    let status = 'upcoming';
+                    if (milestoneDate < today) {
+                        status = 'completed';
+                    } else if (milestoneDate <= new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000)) {
+                        status = 'active';
+                    }
+                    
+                    // Calculate countdown to milestone
+                    const timeDiff = milestoneDate.getTime() - today.getTime();
+                    const daysUntil = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+                    
+                    // Create milestone item
+                    const milestoneItem = document.createElement('div');
+                    milestoneItem.className = `milestone-item ${status}`;
+                    
+                    let countdownText = '';
+                    if (status === 'completed') {
+                        countdownText = `<span class="text-green-600 font-medium">✓ Completed</span>`;
+                    } else if (status === 'active') {
+                        countdownText = `<span class="text-amber-600 font-medium">⏰ ${daysUntil} day${daysUntil !== 1 ? 's' : ''} to go</span>`;
+                    } else {
+                        countdownText = `<span class="text-gray-500">${daysUntil} day${daysUntil !== 1 ? 's' : ''} away</span>`;
+                    }
+                    
+                    milestoneItem.innerHTML = `
+                        <i class="milestone-icon ${milestone.icon}"></i>
+                        <div class="milestone-content">
+                            <div class="milestone-title">${milestone.title}</div>
+                            <div class="milestone-date">${milestoneDate.toLocaleDateString('fr-FR', { 
+                                weekday: 'long', 
+                                year: 'numeric', 
+                                month: 'long', 
+                                day: 'numeric' 
+                            })}</div>
+                            <div class="milestone-countdown">${countdownText}</div>
+                            <div class="text-sm text-gray-600 mt-1">${milestone.description}</div>
+                        </div>
+                    `;
+                    
+                    milestonesTimelineEl.appendChild(milestoneItem);
+                });
+            } catch (error) {
+                debug(`Error displaying milestones: ${error.message}`);
+            }
+        }
+
         // Handle form submission
         retirementForm.addEventListener('submit', (e) => {
             try {
@@ -1309,6 +1586,9 @@
                 
                 // Display holidays
                 displayHolidays();
+                
+                // Display milestones
+                displayMilestones();
                 
                 // Update retirement date displays
                 updateRetirementDateDisplays();
