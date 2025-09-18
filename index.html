@@ -135,11 +135,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .glass-holidays {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
+
         
         /* Fallback gradient if image doesn't load */
         .fallback-gradient {
@@ -948,13 +944,7 @@
                 </form>
             </section>
 
-            <!-- Holidays Section -->
-            <section class="glass-holidays rounded-xl p-6 mb-8 card-shadow">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Swedish Holidays (2025-2026)</h2>
-                <ul id="holidaysList" class="space-y-2">
-                    <!-- Holidays will be populated by JavaScript -->
-                </ul>
-            </section>
+
 
             <!-- Milestones Section -->
             <section class="milestones-container rounded-xl p-6 mb-8 card-shadow">
@@ -1044,7 +1034,7 @@
         const yannRetirementDateInput = document.getElementById('yannRetirementDate');
         const dailyQuoteEl = document.getElementById('dailyQuote');
         const quoteAuthorEl = document.getElementById('quoteAuthor');
-        const holidaysListEl = document.getElementById('holidaysList');
+
         const milestonesTimelineEl = document.getElementById('milestonesTimeline');
         const loadingScreen = document.getElementById('loadingScreen');
         const notification = document.getElementById('notification');
@@ -1089,6 +1079,13 @@
                 description: 'November budget presentations'
             },
             {
+                id: 'all-saints-day-2025',
+                title: 'All Saints\' Day',
+                date: '2025-11-01',
+                icon: 'fas fa-cross',
+                description: 'Swedish public holiday'
+            },
+            {
                 id: 'karin-birthday',
                 title: 'Anniversaire Karin',
                 date: '2025-12-09',
@@ -1096,11 +1093,53 @@
                 description: 'Celebrating Karin\'s special day'
             },
             {
+                id: 'christmas-eve-2025',
+                title: 'Christmas Eve',
+                date: '2025-12-24',
+                icon: 'fas fa-holly-berry',
+                description: 'Swedish public holiday'
+            },
+            {
                 id: 'holidays',
                 title: 'Fêtes de fin d\'année',
                 date: '2025-12-24',
                 icon: 'fas fa-gifts',
                 description: 'Christmas and New Year celebrations'
+            },
+            {
+                id: 'christmas-day-2025',
+                title: 'Christmas Day',
+                date: '2025-12-25',
+                icon: 'fas fa-tree',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'boxing-day-2025',
+                title: 'Boxing Day',
+                date: '2025-12-26',
+                icon: 'fas fa-gift',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'new-years-eve-2025',
+                title: 'New Year\'s Eve',
+                date: '2025-12-31',
+                icon: 'fas fa-fireworks',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'new-years-day-2026',
+                title: 'New Year\'s Day',
+                date: '2026-01-01',
+                icon: 'fas fa-calendar-alt',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'epiphany-2026',
+                title: 'Epiphany',
+                date: '2026-01-06',
+                icon: 'fas fa-star',
+                description: 'Swedish public holiday'
             },
             {
                 id: 'moving',
@@ -1122,6 +1161,111 @@
                 date: '2026-04-01',
                 icon: 'fas fa-umbrella-beach',
                 description: 'Well-deserved vacation time'
+            },
+            {
+                id: 'good-friday-2026',
+                title: 'Good Friday',
+                date: '2026-04-03',
+                icon: 'fas fa-cross',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'easter-sunday-2026',
+                title: 'Easter Sunday',
+                date: '2026-04-05',
+                icon: 'fas fa-egg',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'easter-monday-2026',
+                title: 'Easter Monday',
+                date: '2026-04-06',
+                icon: 'fas fa-rabbit',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'may-day-2026',
+                title: 'May Day',
+                date: '2026-05-01',
+                icon: 'fas fa-hammer',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'ascension-day-2026',
+                title: 'Ascension Day',
+                date: '2026-05-21',
+                icon: 'fas fa-cloud',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'whit-sunday-2026',
+                title: 'Whit Sunday',
+                date: '2026-05-31',
+                icon: 'fas fa-dove',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'whit-monday-2026',
+                title: 'Whit Monday',
+                date: '2026-06-01',
+                icon: 'fas fa-dove',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'national-day-2026',
+                title: 'National Day',
+                date: '2026-06-06',
+                icon: 'fas fa-flag',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'midsummer-eve-2026',
+                title: 'Midsummer\'s Eve',
+                date: '2026-06-19',
+                icon: 'fas fa-sun',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'midsummer-day-2026',
+                title: 'Midsummer\'s Day',
+                date: '2026-06-20',
+                icon: 'fas fa-sun',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'all-saints-day-2026',
+                title: 'All Saints\' Day',
+                date: '2026-10-31',
+                icon: 'fas fa-cross',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'christmas-eve-2026',
+                title: 'Christmas Eve',
+                date: '2026-12-24',
+                icon: 'fas fa-holly-berry',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'christmas-day-2026',
+                title: 'Christmas Day',
+                date: '2026-12-25',
+                icon: 'fas fa-tree',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'boxing-day-2026',
+                title: 'Boxing Day',
+                date: '2026-12-26',
+                icon: 'fas fa-gift',
+                description: 'Swedish public holiday'
+            },
+            {
+                id: 'new-years-eve-2026',
+                title: 'New Year\'s Eve',
+                date: '2026-12-31',
+                icon: 'fas fa-fireworks',
+                description: 'Swedish public holiday'
             },
             {
                 id: 'retirement',
@@ -1359,38 +1503,7 @@
             }
         }
 
-        // Display holidays
-        function displayHolidays() {
-            try {
-                holidaysListEl.innerHTML = '';
-                // Group holidays by year
-                const holidaysByYear = {};
-                swedishHolidays.forEach(holiday => {
-                    const year = holiday.date.substring(0, 4);
-                    if (!holidaysByYear[year]) {
-                        holidaysByYear[year] = [];
-                    }
-                    holidaysByYear[year].push(holiday);
-                });
-                
-                // Display holidays grouped by year
-                Object.keys(holidaysByYear).sort().forEach(year => {
-                    const yearHeader = document.createElement('li');
-                    yearHeader.className = 'font-bold text-lg mt-4 mb-2';
-                    yearHeader.textContent = year;
-                    holidaysListEl.appendChild(yearHeader);
-                    
-                    holidaysByYear[year].forEach(holiday => {
-                        const li = document.createElement('li');
-                        li.className = 'holiday-item p-2 rounded ml-4';
-                        li.innerHTML = `<span class="font-medium">${holiday.name}</span> - ${new Date(holiday.date).toLocaleDateString()}`;
-                        holidaysListEl.appendChild(li);
-                    });
-                });
-            } catch (error) {
-                debug(`Error displaying holidays: ${error.message}`);
-            }
-        }
+
 
         // Display milestones timeline
         function displayMilestones() {
@@ -1584,8 +1697,7 @@
                 // Show random quote
                 showRandomQuote();
                 
-                // Display holidays
-                displayHolidays();
+
                 
                 // Display milestones
                 displayMilestones();
