@@ -859,6 +859,52 @@
 
         <!-- Main Content -->
         <main>
+            <!-- Progress Section -->
+            <section class="glass-card rounded-xl p-6 mb-8 card-shadow">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Progress to Retirement</h2>
+                <table class="percentage-table">
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Karin's Progress</th>
+                            <th>Yann's Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Journey Progress<br><small class="text-gray-500">(from Sep 1, 2025)</small></td>
+                            <td>
+                                <div class="percentage-bar">
+                                    <div id="karinYearsProgress" class="percentage-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="karinYearsPercentage">0%</span>
+                            </td>
+                            <td>
+                                <div class="percentage-bar">
+                                    <div id="yannYearsProgress" class="percentage-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="yannYearsPercentage">0%</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Time Elapsed<br><small class="text-gray-500">(since Sep 1, 2025)</small></td>
+                            <td>
+                                <div class="percentage-bar">
+                                    <div id="karinMonthsProgress" class="percentage-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="karinMonthsPercentage">0%</span>
+                            </td>
+                            <td>
+                                <div class="percentage-bar">
+                                    <div id="yannMonthsProgress" class="percentage-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="yannMonthsPercentage">0%</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
             <!-- Countdown Section -->
             <section id="countdownSection" class="glass-card rounded-xl p-6 mb-8 card-shadow">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Time Until Retirement</h2>
@@ -957,51 +1003,6 @@
                 </div>
             </section>
 
-            <!-- Progress Section -->
-            <section class="glass-card rounded-xl p-6 mb-8 card-shadow">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Progress to Retirement</h2>
-                <table class="percentage-table">
-                    <thead>
-                        <tr>
-                            <th>Milestone</th>
-                            <th>Karin's Progress</th>
-                            <th>Yann's Progress</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Journey Progress<br><small class="text-gray-500">(from Sep 1, 2025)</small></td>
-                            <td>
-                                <div class="percentage-bar">
-                                    <div id="karinYearsProgress" class="percentage-fill" style="width: 0%"></div>
-                                </div>
-                                <span id="karinYearsPercentage">0%</span>
-                            </td>
-                            <td>
-                                <div class="percentage-bar">
-                                    <div id="yannYearsProgress" class="percentage-fill" style="width: 0%"></div>
-                                </div>
-                                <span id="yannYearsPercentage">0%</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Time Elapsed<br><small class="text-gray-500">(since Sep 1, 2025)</small></td>
-                            <td>
-                                <div class="percentage-bar">
-                                    <div id="karinMonthsProgress" class="percentage-fill" style="width: 0%"></div>
-                                </div>
-                                <span id="karinMonthsPercentage">0%</span>
-                            </td>
-                            <td>
-                                <div class="percentage-bar">
-                                    <div id="yannMonthsProgress" class="percentage-fill" style="width: 0%"></div>
-                                </div>
-                                <span id="yannMonthsPercentage">0%</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
         </main>
     </div>
 
