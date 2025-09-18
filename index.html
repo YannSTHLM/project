@@ -970,7 +970,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Years Until Retirement</td>
+                            <td>Journey Progress<br><small class="text-gray-500">(from Sep 1, 2025)</small></td>
                             <td>
                                 <div class="percentage-bar">
                                     <div id="karinYearsProgress" class="percentage-fill" style="width: 0%"></div>
@@ -985,7 +985,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Months Until Retirement</td>
+                            <td>Time Elapsed<br><small class="text-gray-500">(since Sep 1, 2025)</small></td>
                             <td>
                                 <div class="percentage-bar">
                                     <div id="karinMonthsProgress" class="percentage-fill" style="width: 0%"></div>
@@ -1436,25 +1436,55 @@
             return timeDiff;
         }
 
+        // Calculate progress percentage from September 1st, 2025 to retirement
+        function calculateProgressPercentage(retirementDate) {
+            const startDate = new Date('2025-09-01');
+            const endDate = new Date(retirementDate);
+            const currentDate = new Date();
+            
+            // Ensure dates are at midnight for consistent calculation
+            startDate.setHours(0, 0, 0, 0);
+            endDate.setHours(0, 0, 0, 0);
+            currentDate.setHours(0, 0, 0, 0);
+            
+            // If current date is before start date, progress is 0%
+            if (currentDate < startDate) {
+                return 0;
+            }
+            
+            // If current date is after retirement date, progress is 100%
+            if (currentDate >= endDate) {
+                return 100;
+            }
+            
+            // Calculate total journey time and elapsed time
+            const totalJourneyTime = endDate.getTime() - startDate.getTime();
+            const elapsedTime = currentDate.getTime() - startDate.getTime();
+            
+            // Calculate percentage
+            const percentage = (elapsedTime / totalJourneyTime) * 100;
+            return Math.min(100, Math.max(0, percentage));
+        }
+
         // Update progress bars
         function updateProgressBars(karinTimeDiff, yannTimeDiff) {
-            // Karin's progress
-            const karinYearsPercentage = Math.min(100, Math.max(0, 100 - (karinTimeDiff.years * 10)));
-            document.getElementById('karinYearsProgress').style.width = `${karinYearsPercentage}%`;
-            document.getElementById('karinYearsPercentage').textContent = `${Math.round(karinYearsPercentage)}%`;
+            // Calculate progress from September 1st, 2025
+            const karinProgressPercentage = calculateProgressPercentage(karinRetirementDate);
+            const yannProgressPercentage = calculateProgressPercentage(yannRetirementDate);
+            
+            // Update Karin's progress bars
+            document.getElementById('karinYearsProgress').style.width = `${karinProgressPercentage}%`;
+            document.getElementById('karinYearsPercentage').textContent = `${Math.round(karinProgressPercentage * 10) / 10}%`;
 
-            const karinMonthsPercentage = Math.min(100, Math.max(0, 100 - (karinTimeDiff.months * 2)));
-            document.getElementById('karinMonthsProgress').style.width = `${karinMonthsPercentage}%`;
-            document.getElementById('karinMonthsPercentage').textContent = `${Math.round(karinMonthsPercentage)}%`;
+            document.getElementById('karinMonthsProgress').style.width = `${karinProgressPercentage}%`;
+            document.getElementById('karinMonthsPercentage').textContent = `${Math.round(karinProgressPercentage * 10) / 10}%`;
 
-            // Yann's progress
-            const yannYearsPercentage = Math.min(100, Math.max(0, 100 - (yannTimeDiff.years * 10)));
-            document.getElementById('yannYearsProgress').style.width = `${yannYearsPercentage}%`;
-            document.getElementById('yannYearsPercentage').textContent = `${Math.round(yannYearsPercentage)}%`;
+            // Update Yann's progress bars  
+            document.getElementById('yannYearsProgress').style.width = `${yannProgressPercentage}%`;
+            document.getElementById('yannYearsPercentage').textContent = `${Math.round(yannProgressPercentage * 10) / 10}%`;
 
-            const yannMonthsPercentage = Math.min(100, Math.max(0, 100 - (yannTimeDiff.months * 2)));
-            document.getElementById('yannMonthsProgress').style.width = `${yannMonthsPercentage}%`;
-            document.getElementById('yannMonthsPercentage').textContent = `${Math.round(yannMonthsPercentage)}%`;
+            document.getElementById('yannMonthsProgress').style.width = `${yannProgressPercentage}%`;
+            document.getElementById('yannMonthsPercentage').textContent = `${Math.round(yannProgressPercentage * 10) / 10}%`;
         }
 
         // Update countdown
