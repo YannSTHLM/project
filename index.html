@@ -15,7 +15,7 @@
     <!-- iOS Splash Screens -->
     <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4em0wLTE0Yy0zLjMxIDAtNiAyLjY5LTYgNnMyLjY5IDYgNiA2IDYtMi42OSA2LTYtMi42OS02LTYtNnptMCAxMGMtMi4yMSAwLTQtMS43OS00LTRzMS43OS00IDQtNCA0IDEuNzkgNCA0LTEuNzkgNC00IDR6Ii8+PC9zdmc+">
     
-    <title>Retirement Countdown - Your Journey to Freedom</title>
+    <title>Retirement Countdown - Karin & Yann's Journey</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -86,6 +86,11 @@
             font-weight: 700;
             color: #ffffff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .quote-fade {
@@ -425,6 +430,102 @@
             text-align: right;
         }
         
+        /* Personalized welcome message */
+        .welcome-message {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .welcome-text {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .welcome-subtext {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+        
+        /* Person section styling */
+        .person-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .person-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+        }
+        
+        .countdown-item-small {
+            background: rgba(102, 126, 234, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .countdown-number-small {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Debug panel */
+        .debug-panel {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            max-width: 300px;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .debug-panel.show {
+            display: block;
+        }
+        
+        .debug-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
         /* Responsive improvements */
         @media (prefers-reduced-motion: reduce) {
             * {
@@ -509,6 +610,30 @@
             .funny-quote-text {
                 font-size: 0.9rem;
             }
+            
+            .welcome-message {
+                padding: 12px;
+            }
+            
+            .welcome-text {
+                font-size: 1.1rem;
+            }
+            
+            .welcome-subtext {
+                font-size: 0.9rem;
+            }
+            
+            .person-section {
+                padding: 1rem;
+            }
+            
+            .person-name {
+                font-size: 1.3rem;
+            }
+            
+            .countdown-number-small {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -516,7 +641,7 @@
     <!-- Loading Screen -->
     <div id="loadingScreen" class="loading-screen">
         <div class="spinner mb-4"></div>
-        <p class="text-white text-lg">Loading your retirement countdown...</p>
+        <p class="text-white text-lg">Loading Karin & Yann's retirement countdown...</p>
     </div>
 
     <!-- Offline Indicator -->
@@ -546,6 +671,13 @@
         <p>To install this app, tap <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4em0wLTE0Yy0zLjMxIDAtNiAyLjY5LTYgNnMyLjY5IDYgNiA2IDYtMi42OSA2LTYtMi42OS02LTYtNnptMCAxMGMtMi4yMSAwLTQtMS43OS00LTRzMS43OS00IDQtNCA0IDEuNzkgNCA0LTEuNzkgNC00IDR6Ii8+PC9zdmc+" alt="Share icon"> and then "Add to Home Screen"</p>
     </div>
 
+    <!-- Debug Panel -->
+    <button id="debugToggle" class="debug-toggle">D</button>
+    <div id="debugPanel" class="debug-panel">
+        <h3>Debug Info</h3>
+        <div id="debugContent"></div>
+    </div>
+
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <header class="text-center mb-12">
@@ -554,8 +686,14 @@
                 <img src="https://www.piperboats.com/wp-content/uploads/2023/04/Piper_57N_side.png" alt="Dutch Barge" class="dutch-barge-icon mb-4" onerror="this.style.display='none'; document.getElementById('fallbackIcon').style.display='block';">
                 <i id="fallbackIcon" class="fas fa-ship fallback-icon mb-4" style="display: none;"></i>
             </div>
-            <h1 class="text-5xl font-bold text-white mb-4 drop-shadow-lg">Countdown</h1>
-            <p class="text-xl text-purple-100 drop-shadow-md">:-)</p>
+            <h1 class="text-5xl font-bold text-white mb-4 drop-shadow-lg">Retirement Countdown</h1>
+            <p class="text-xl text-purple-100 drop-shadow-md">Karin & Yann's Journey to Freedom</p>
+            
+            <!-- Personalized Welcome Message -->
+            <div class="welcome-message max-w-2xl mx-auto">
+                <p class="welcome-text">Welcome, Karin & Yann!</p>
+                <p class="welcome-subtext">Your adventure on the water awaits</p>
+            </div>
             
             <!-- Funny Quote Section -->
             <div class="funny-quote max-w-2xl mx-auto">
@@ -563,3 +701,650 @@
                 <p id="quoteAuthor" class="funny-quote-author"></p>
             </div>
         </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Countdown Section -->
+            <section id="countdownSection" class="glass-card rounded-xl p-6 mb-8 card-shadow">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Time Until Retirement</h2>
+                
+                <!-- Karin's Countdown -->
+                <div class="person-section">
+                    <h3 class="person-name">Karin's Retirement</h3>
+                    <div class="text-center mb-4">
+                        <p id="karinDateDisplay" class="text-lg text-gray-700">Retirement Date: June 11, 2026</p>
+                    </div>
+                    <div class="countdown-grid">
+                        <div class="countdown-item-small">
+                            <div id="karinYears" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Years</div>
+                        </div>
+                        <div class="countdown-item-small">
+                            <div id="karinMonths" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Months</div>
+                        </div>
+                        <div class="countdown-item-small">
+                            <div id="karinWeeks" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Weeks</div>
+                        </div>
+                        <div class="countdown-item-small">
+                            <div id="karinDays" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item-small">
+                            <div id="karinWorkingDays" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Work Days</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Yann's Countdown -->
+                <div class="person-section">
+                    <h3 class="person-name">Yann's Retirement</h3>
+                    <div class="text-center mb-4">
+                        <p id="yannDateDisplay" class="text-lg text-gray-700">Retirement Date: January 23, 2027</p>
+                    </div>
+                    <div class="countdown-grid">
+                        <div class="countdown-item-small">
+                            <div id="yannYears" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Years</div>
+                        </div>
+                        <div class="countdown-item-small">
+                            <div id="yannMonths" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Months</div>
+                        </div>
+                        <div class="countdown-item-small">
+                            <div id="yannWeeks" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Weeks</div>
+                        </div>
+                        <div class="countdown-item-small">
+                            <div id="yannDays" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item-small">
+                            <div id="yannWorkingDays" class="countdown-number-small">0</div>
+                            <div class="countdown-label">Work Days</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Set Retirement Date Form -->
+            <section class="glass-card rounded-xl p-6 mb-8 card-shadow">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Update Retirement Dates</h2>
+                <form id="retirementForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="karinRetirementDate" class="block text-gray-700 text-sm font-bold mb-2">Karin's Retirement Date</label>
+                            <input type="date" id="karinRetirementDate" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <div>
+                            <label for="yannRetirementDate" class="block text-gray-700 text-sm font-bold mb-2">Yann's Retirement Date</label>
+                            <input type="date" id="yannRetirementDate" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                    </div>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Update Dates
+                    </button>
+                </form>
+            </section>
+
+            <!-- Holidays Section -->
+            <section class="glass-holidays rounded-xl p-6 mb-8 card-shadow">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Swedish Holidays (2025-2026)</h2>
+                <ul id="holidaysList" class="space-y-2">
+                    <!-- Holidays will be populated by JavaScript -->
+                </ul>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="glass-card rounded-xl p-6 mb-8 card-shadow">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Progress to Retirement</h2>
+                <table class="percentage-table">
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Karin's Progress</th>
+                            <th>Yann's Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Years Until Retirement</td>
+                            <td>
+                                <div class="percentage-bar">
+                                    <div id="karinYearsProgress" class="percentage-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="karinYearsPercentage">0%</span>
+                            </td>
+                            <td>
+                                <div class="percentage-bar">
+                                    <div id="yannYearsProgress" class="percentage-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="yannYearsPercentage">0%</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Months Until Retirement</td>
+                            <td>
+                                <div class="percentage-bar">
+                                    <div id="karinMonthsProgress" class="percentage-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="karinMonthsPercentage">0%</span>
+                            </td>
+                            <td>
+                                <div class="percentage-bar">
+                                    <div id="yannMonthsProgress" class="percentage-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="yannMonthsPercentage">0%</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Page Icon -->
+    <div class="page-icon">
+        <i class="fas fa-anchor"></i>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script>
+        // Elements
+        const karinYearsEl = document.getElementById('karinYears');
+        const karinMonthsEl = document.getElementById('karinMonths');
+        const karinWeeksEl = document.getElementById('karinWeeks');
+        const karinDaysEl = document.getElementById('karinDays');
+        const karinWorkingDaysEl = document.getElementById('karinWorkingDays');
+        const karinDateDisplay = document.getElementById('karinDateDisplay');
+        
+        const yannYearsEl = document.getElementById('yannYears');
+        const yannMonthsEl = document.getElementById('yannMonths');
+        const yannWeeksEl = document.getElementById('yannWeeks');
+        const yannDaysEl = document.getElementById('yannDays');
+        const yannWorkingDaysEl = document.getElementById('yannWorkingDays');
+        const yannDateDisplay = document.getElementById('yannDateDisplay');
+        
+        const retirementForm = document.getElementById('retirementForm');
+        const karinRetirementDateInput = document.getElementById('karinRetirementDate');
+        const yannRetirementDateInput = document.getElementById('yannRetirementDate');
+        const dailyQuoteEl = document.getElementById('dailyQuote');
+        const quoteAuthorEl = document.getElementById('quoteAuthor');
+        const holidaysListEl = document.getElementById('holidaysList');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const notification = document.getElementById('notification');
+        const debugPanel = document.getElementById('debugPanel');
+        const debugToggle = document.getElementById('debugToggle');
+        const debugContent = document.getElementById('debugContent');
+
+        // Fallback: Always remove loading screen after 5 seconds
+        const loadingTimeout = setTimeout(() => {
+            console.warn('Loading screen forcibly removed after timeout');
+            if (loadingScreen) {
+                loadingScreen.classList.add('hide');
+            }
+        }, 5000);
+
+        // Sample quotes
+        const quotes = [
+            { text: "Retirement: When you stop living at work and start working at living.", author: "Unknown" },
+            { text: "The best time to retire is when you have enough money to do what you want.", author: "Unknown" },
+            { text: "Retirement is like a long vacation in Las Vegas. The goal is to enjoy it to the fullest, but not so fully that you run out of money.", author: "Jonathan Clements" },
+            { text: "Retirement: No alarm clock, no traffic, no boss. Just pure freedom.", author: "Unknown" },
+            { text: "I'm now as free as the breeze - with roughly the same income.", author: "Unknown" },
+            { text: "A ship in harbor is safe, but that is not what ships are built for.", author: "John A. Shedd" },
+            { text: "The goal of retirement is to live off your assets, not your alarm clock.", author: "Unknown" },
+            { text: "Retirement is the only time in your life when you can have a life without a job, but still get paid.", author: "Unknown" }
+        ];
+
+        // Swedish holidays for 2025 and 2026
+        const swedishHolidays = [
+            // 2025 holidays
+            { name: "New Year's Day", date: "2025-01-01" },
+            { name: "Epiphany", date: "2025-01-06" },
+            { name: "Good Friday", date: "2025-04-18" },
+            { name: "Easter Sunday", date: "2025-04-20" },
+            { name: "Easter Monday", date: "2025-04-21" },
+            { name: "May Day", date: "2025-05-01" },
+            { name: "Ascension Day", date: "2025-05-29" },
+            { name: "Whit Sunday", date: "2025-06-08" },
+            { name: "Whit Monday", date: "2025-06-09" },
+            { name: "National Day", date: "2025-06-06" },
+            { name: "Midsummer's Eve", date: "2025-06-20" },
+            { name: "Midsummer's Day", date: "2025-06-21" },
+            { name: "All Saints' Day", date: "2025-11-01" },
+            { name: "Christmas Eve", date: "2025-12-24" },
+            { name: "Christmas Day", date: "2025-12-25" },
+            { name: "Boxing Day", date: "2025-12-26" },
+            { name: "New Year's Eve", date: "2025-12-31" },
+            // 2026 holidays
+            { name: "New Year's Day", date: "2026-01-01" },
+            { name: "Epiphany", date: "2026-01-06" },
+            { name: "Good Friday", date: "2026-04-03" },
+            { name: "Easter Sunday", date: "2026-04-05" },
+            { name: "Easter Monday", date: "2026-04-06" },
+            { name: "May Day", date: "2026-05-01" },
+            { name: "Ascension Day", date: "2026-05-21" },
+            { name: "Whit Sunday", date: "2026-05-31" },
+            { name: "Whit Monday", date: "2026-06-01" },
+            { name: "National Day", date: "2026-06-06" },
+            { name: "Midsummer's Eve", date: "2026-06-19" },
+            { name: "Midsummer's Day", date: "2026-06-20" },
+            { name: "All Saints' Day", date: "2026-10-31" },
+            { name: "Christmas Eve", date: "2026-12-24" },
+            { name: "Christmas Day", date: "2026-12-25" },
+            { name: "Boxing Day", date: "2026-12-26" },
+            { name: "New Year's Eve", date: "2026-12-31" }
+        ];
+
+        // Debug function
+        function debug(message) {
+            console.log(message);
+            if (debugPanel.classList.contains('show')) {
+                debugContent.innerHTML += `<div>${new Date().toLocaleTimeString()}: ${message}</div>`;
+            }
+        }
+
+        // Toggle debug panel
+        debugToggle.addEventListener('click', () => {
+            debugPanel.classList.toggle('show');
+            if (debugPanel.classList.contains('show')) {
+                debugContent.innerHTML = '<div>Debug panel enabled</div>';
+            }
+        });
+
+        // Initialize retirement dates
+        let karinRetirementDate = localStorage.getItem('karinRetirementDate') || '2026-06-11';
+        let yannRetirementDate = localStorage.getItem('yannRetirementDate') || '2027-01-23';
+        let countdownInterval = null;
+
+        // Set retirement date input values
+        karinRetirementDateInput.value = karinRetirementDate;
+        yannRetirementDateInput.value = yannRetirementDate;
+
+        // Update retirement date displays
+        function updateRetirementDateDisplays() {
+            const karinDate = new Date(karinRetirementDate);
+            karinDateDisplay.textContent = `Retirement Date: ${karinDate.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            })}`;
+            
+            const yannDate = new Date(yannRetirementDate);
+            yannDateDisplay.textContent = `Retirement Date: ${yannDate.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            })}`;
+        }
+
+        // Check if a date is a Swedish holiday
+        function isSwedishHoliday(date) {
+            const dateString = date.toISOString().split('T')[0];
+            return swedishHolidays.some(holiday => holiday.date === dateString);
+        }
+
+        // Check if a date is a weekend
+        function isWeekend(date) {
+            const day = date.getDay();
+            return day === 0 || day === 6; // Sunday (0) or Saturday (6)
+        }
+
+        // Calculate working days between two dates
+        function calculateWorkingDays(startDate, endDate) {
+            let workingDays = 0;
+            const currentDate = new Date(startDate);
+            
+            while (currentDate <= endDate) {
+                if (!isWeekend(currentDate) && !isSwedishHoliday(currentDate)) {
+                    workingDays++;
+                }
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+            
+            return workingDays;
+        }
+
+        // Calculate time differences
+        function calculateTimeDifferences(retirementDate) {
+            const retirementTime = new Date(retirementDate).getTime();
+            const currentTime = new Date().getTime();
+            const timeLeft = retirementTime - currentTime;
+
+            if (timeLeft < 0) {
+                return {
+                    years: 0,
+                    months: 0,
+                    weeks: 0,
+                    days: 0,
+                    workingDays: 0
+                };
+            }
+
+            // Calculate total days
+            const totalDays = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            
+            // Calculate years, months, weeks
+            const years = Math.floor(totalDays / 365);
+            const months = Math.floor((totalDays % 365) / 30);
+            const weeks = Math.floor(totalDays / 7);
+            
+            // Calculate working days
+            const workingDays = calculateWorkingDays(new Date(), new Date(retirementTime));
+
+            return {
+                years,
+                months,
+                weeks,
+                days: totalDays,
+                workingDays
+            };
+        }
+
+        // Update countdown for a person
+        function updatePersonCountdown(retirementDate, yearsEl, monthsEl, weeksEl, daysEl, workingDaysEl) {
+            const timeDiff = calculateTimeDifferences(retirementDate);
+            
+            yearsEl.textContent = timeDiff.years;
+            monthsEl.textContent = timeDiff.months;
+            weeksEl.textContent = timeDiff.weeks;
+            daysEl.textContent = timeDiff.days;
+            workingDaysEl.textContent = timeDiff.workingDays;
+            
+            return timeDiff;
+        }
+
+        // Update progress bars
+        function updateProgressBars(karinTimeDiff, yannTimeDiff) {
+            // Karin's progress
+            const karinYearsPercentage = Math.min(100, Math.max(0, 100 - (karinTimeDiff.years * 10)));
+            document.getElementById('karinYearsProgress').style.width = `${karinYearsPercentage}%`;
+            document.getElementById('karinYearsPercentage').textContent = `${Math.round(karinYearsPercentage)}%`;
+
+            const karinMonthsPercentage = Math.min(100, Math.max(0, 100 - (karinTimeDiff.months * 2)));
+            document.getElementById('karinMonthsProgress').style.width = `${karinMonthsPercentage}%`;
+            document.getElementById('karinMonthsPercentage').textContent = `${Math.round(karinMonthsPercentage)}%`;
+
+            // Yann's progress
+            const yannYearsPercentage = Math.min(100, Math.max(0, 100 - (yannTimeDiff.years * 10)));
+            document.getElementById('yannYearsProgress').style.width = `${yannYearsPercentage}%`;
+            document.getElementById('yannYearsPercentage').textContent = `${Math.round(yannYearsPercentage)}%`;
+
+            const yannMonthsPercentage = Math.min(100, Math.max(0, 100 - (yannTimeDiff.months * 2)));
+            document.getElementById('yannMonthsProgress').style.width = `${yannMonthsPercentage}%`;
+            document.getElementById('yannMonthsPercentage').textContent = `${Math.round(yannMonthsPercentage)}%`;
+        }
+
+        // Update countdown
+        function updateCountdown() {
+            try {
+                debug('Updating countdowns');
+                
+                // Update Karin's countdown
+                const karinTimeDiff = updatePersonCountdown(
+                    karinRetirementDate,
+                    karinYearsEl,
+                    karinMonthsEl,
+                    karinWeeksEl,
+                    karinDaysEl,
+                    karinWorkingDaysEl
+                );
+                
+                // Update Yann's countdown
+                const yannTimeDiff = updatePersonCountdown(
+                    yannRetirementDate,
+                    yannYearsEl,
+                    yannMonthsEl,
+                    yannWeeksEl,
+                    yannDaysEl,
+                    yannWorkingDaysEl
+                );
+                
+                // Update progress bars
+                updateProgressBars(karinTimeDiff, yannTimeDiff);
+                
+                debug(`Karin: ${karinTimeDiff.years}y ${karinTimeDiff.months}m ${karinTimeDiff.weeks}w ${karinTimeDiff.days}d ${karinTimeDiff.workingDays}wd`);
+                debug(`Yann: ${yannTimeDiff.years}y ${yannTimeDiff.months}m ${yannTimeDiff.weeks}w ${yannTimeDiff.days}d ${yannTimeDiff.workingDays}wd`);
+            } catch (error) {
+                debug(`Error updating countdown: ${error.message}`);
+            }
+        }
+
+        // Show random quote
+        function showRandomQuote() {
+            try {
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                dailyQuoteEl.textContent = randomQuote.text;
+                quoteAuthorEl.textContent = `- ${randomQuote.author}`;
+            } catch (error) {
+                debug(`Error displaying quote: ${error.message}`);
+            }
+        }
+
+        // Display holidays
+        function displayHolidays() {
+            try {
+                holidaysListEl.innerHTML = '';
+                // Group holidays by year
+                const holidaysByYear = {};
+                swedishHolidays.forEach(holiday => {
+                    const year = holiday.date.substring(0, 4);
+                    if (!holidaysByYear[year]) {
+                        holidaysByYear[year] = [];
+                    }
+                    holidaysByYear[year].push(holiday);
+                });
+                
+                // Display holidays grouped by year
+                Object.keys(holidaysByYear).sort().forEach(year => {
+                    const yearHeader = document.createElement('li');
+                    yearHeader.className = 'font-bold text-lg mt-4 mb-2';
+                    yearHeader.textContent = year;
+                    holidaysListEl.appendChild(yearHeader);
+                    
+                    holidaysByYear[year].forEach(holiday => {
+                        const li = document.createElement('li');
+                        li.className = 'holiday-item p-2 rounded ml-4';
+                        li.innerHTML = `<span class="font-medium">${holiday.name}</span> - ${new Date(holiday.date).toLocaleDateString()}`;
+                        holidaysListEl.appendChild(li);
+                    });
+                });
+            } catch (error) {
+                debug(`Error displaying holidays: ${error.message}`);
+            }
+        }
+
+        // Handle form submission
+        retirementForm.addEventListener('submit', (e) => {
+            try {
+                e.preventDefault();
+                
+                const newKarinDate = karinRetirementDateInput.value;
+                const newYannDate = yannRetirementDateInput.value;
+                
+                if (!newKarinDate || !newYannDate) {
+                    showNotification('Please select both retirement dates');
+                    return;
+                }
+                
+                karinRetirementDate = newKarinDate;
+                yannRetirementDate = newYannDate;
+                
+                localStorage.setItem('karinRetirementDate', karinRetirementDate);
+                localStorage.setItem('yannRetirementDate', yannRetirementDate);
+                
+                updateRetirementDateDisplays();
+                updateCountdown();
+                showNotification('Retirement dates updated successfully!');
+                debug(`Karin's date set to: ${karinRetirementDate}`);
+                debug(`Yann's date set to: ${yannRetirementDate}`);
+            } catch (error) {
+                debug(`Error handling form submission: ${error.message}`);
+                showNotification('Error updating retirement dates');
+            }
+        });
+
+        // Show notification
+        function showNotification(message) {
+            try {
+                notification.textContent = message;
+                notification.classList.add('show');
+
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            } catch (error) {
+                debug(`Error showing notification: ${error.message}`);
+            }
+        }
+
+        // Offline detection
+        window.addEventListener('online', () => {
+            try {
+                document.getElementById('offlineIndicator').classList.remove('show');
+            } catch (error) {
+                debug(`Error handling online event: ${error.message}`);
+            }
+        });
+
+        window.addEventListener('offline', () => {
+            try {
+                document.getElementById('offlineIndicator').classList.add('show');
+            } catch (error) {
+                debug(`Error handling offline event: ${error.message}`);
+            }
+        });
+
+        // PWA install prompt
+        let deferredPrompt;
+        const installButton = document.getElementById('installButton');
+        const dismissInstallButton = document.getElementById('dismissInstallButton');
+        const installBanner = document.getElementById('installBanner');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            try {
+                e.preventDefault();
+                deferredPrompt = e;
+                installBanner.classList.add('show');
+            } catch (error) {
+                debug(`Error handling beforeinstallprompt event: ${error.message}`);
+            }
+        });
+
+        installButton.addEventListener('click', () => {
+            try {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            debug('User accepted the install prompt');
+                        }
+                        deferredPrompt = null;
+                        installBanner.classList.remove('show');
+                    });
+                }
+            } catch (error) {
+                debug(`Error handling install button click: ${error.message}`);
+            }
+        });
+
+        dismissInstallButton.addEventListener('click', () => {
+            try {
+                installBanner.classList.remove('show');
+            } catch (error) {
+                debug(`Error handling dismiss install button click: ${error.message}`);
+            }
+        });
+
+        // iOS install hint
+        if (window.navigator.standalone) {
+            // Already installed
+        } else {
+            // Check if it's iOS
+            try {
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                if (isIOS) {
+                    setTimeout(() => {
+                        document.getElementById('iosInstallHint').classList.add('show');
+                        setTimeout(() => {
+                            document.getElementById('iosInstallHint').classList.remove('show');
+                        }, 10000);
+                    }, 5000);
+                }
+            } catch (error) {
+                debug(`Error handling iOS install hint: ${error.message}`);
+            }
+        }
+
+        // Initialize app
+        function initializeApp() {
+            try {
+                // Clear the loading timeout since we're loading successfully
+                clearTimeout(loadingTimeout);
+                
+                // Hide loading screen
+                loadingScreen.classList.add('hide');
+                
+                // Show random quote
+                showRandomQuote();
+                
+                // Display holidays
+                displayHolidays();
+                
+                // Update retirement date displays
+                updateRetirementDateDisplays();
+                
+                // Start countdown
+                updateCountdown();
+                
+                // Clear any existing interval
+                if (countdownInterval) {
+                    clearInterval(countdownInterval);
+                }
+                
+                // Set new interval
+                countdownInterval = setInterval(updateCountdown, 1000);
+                
+                debug('App initialized successfully');
+            } catch (error) {
+                debug(`Error initializing app: ${error.message}`);
+                // Even if there's an error, hide the loading screen
+                loadingScreen.classList.add('hide');
+            }
+        }
+
+        // Try to initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            debug('DOM content loaded');
+            initializeApp();
+        });
+
+        // Fallback: also try to initialize when window loads
+        window.addEventListener('load', () => {
+            debug('Window loaded');
+            initializeApp();
+        });
+
+        // Check if the browser supports service workers
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Only register service worker if we're in a production environment
+                if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                    navigator.serviceWorker.register('/sw.js').then(registration => {
+                        debug('ServiceWorker registration successful');
+                    }).catch(error => {
+                        debug(`ServiceWorker registration failed: ${error.message}`);
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
